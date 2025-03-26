@@ -12,10 +12,10 @@ export class SupabaseService {
     this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey);
   }
 
-  async getImages(): Promise<string[]> {
+  async getImages(sub: string): Promise<string[]> {
     const { data, error } = await this.supabase.storage
       .from('images')
-      .list();
+      .list(sub);
       console.log(data, error);
     if (error) {
       console.error('Erreur lors du chargement des images', error);

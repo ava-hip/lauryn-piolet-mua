@@ -1,21 +1,26 @@
 <header class="hover:bg-white/75">
-  <div class="container mx-auto px-4">
+  <div class="container mx-auto px-4 py-2">
     <!-- Desktop -->
-    <nav class="flex items-center justify-between py-10">
+    <nav class="flex items-center justify-between py-6 md:py-10">
       <div class="hidden md:flex flex-shrink-0">
         <a href="#">
-          <h1 class="font-bold text-2xl">LAURYNPIOLET</h1>
+          <h1 class="font-bold text-2xl">LAURYN PIOLET <br> Make up artist</h1>
         </a>
       </div>
 
       <div class="hidden md:flex items-center space-x-6">
-        <a routerLink="portfolio" class="text-gray-800 font-medium hover:underline">Portfolio</a>
-        <a routerLink="about" class="text-gray-800 font-medium hover:underline">About</a>
-        <a routerLink="contact" class="text-gray-800 font-medium hover:underline">Contact</a>
+        <a routerLink="fashion" class="text-gray-800 font-medium hover:text-neutral-400">Fashion</a>
+        <a routerLink="film" class="text-gray-800 font-medium hover:text-neutral-400">Film</a>
+        <a routerLink="bridal" class="text-gray-800 font-medium hover:text-neutral-400">Bridal</a>
+        <a routerLink="about" class="text-gray-800 font-medium hover:text-neutral-400">About</a>
+        <a routerLink="contact" class="text-gray-800 font-medium hover:text-neutral-400">Contact</a>
       </div>
 
       <!-- Mobile -->
-      <div class="md:hidden">
+      <div class="md:hidden flex justify-between w-full">
+        <div>
+          <a routerLink="" class="text-2xl font-bold">L</a>
+        </div>
         <button id="menu-toggle" (click)="toggleMobileMenu()" class="text-gray-800 focus:outline-none">
           <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -25,13 +30,10 @@
     </nav>
 
     @if (isMobileShow) {
-      <div id="mobile-menu" class="flex-col space-y-4 mt-4 md:hidden">
-        <a href="#" class="block text-gray-800 hover:text-gray-600">Women</a>
-        <a href="#" class="block text-gray-800 hover:text-gray-600">Bridal</a>
-        <a href="#" class="block text-gray-800 hover:text-gray-600">Collections</a>
-        <a href="#" class="block text-gray-800 hover:text-gray-600">Stores</a>
-        <a href="#" class="block text-gray-800 hover:text-gray-600">About</a>
-        <a href="#" class="block text-gray-800 hover:text-gray-600">Contact</a>
+      <div id="mobile-menu" class="flex-col space-y-4 my-4 md:hidden">
+        <a routerLink="portfolio" class="block text-gray-800 hover:text-gray-600">Portfolio</a>
+        <a routerLink="about" class="block text-gray-800 hover:text-gray-600">About</a>
+        <a routerLink="contact" class="block text-gray-800 hover:text-gray-600">Contact</a>
       </div>
     }
   </div>
