@@ -1,7 +1,7 @@
 <div class="px-5 sm:px-8 pb-8 sm:pb-40">
   <div class="columns-1 gap-5 sm:columns-2 sm:gap-8 md:columns-3 lg:columns-4 [&>img:not(:first-child)]:mt-8">
-    @for (image of images; track $index) {
-        <img [src]="image" >
+    @for (image of images ; track $index) {
+        <img [src]="image" loading="lazy" >
     }
   </div>
 </div>

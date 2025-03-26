@@ -19,10 +19,11 @@
     "@angular/platform-browser": "^19.1.0",
     "@angular/platform-browser-dynamic": "^19.1.0",
     "@angular/router": "^19.1.0",
+    "@supabase/auth-js": "^2.69.1",
+    "@supabase/supabase-js": "^2.49.3",
     "@types/gsap": "^3.0.0",
     "gsap": "^3.12.7",
     "lazysizes": "^5.3.2",
-    "ng-gallery": "^12.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
@@ -42,5 +43,10 @@
     "postcss": "^8.5.1",
     "tailwindcss": "^3.4.17",
     "typescript": "~5.7.2"
+  },
+  "overrides": {
+  "@supabase/supabase-js": {
+    "@supabase/auth-js": "2.61.0"
   }
+}
 }
