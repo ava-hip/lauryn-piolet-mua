@@ -21,6 +21,6 @@ export class SupabaseService {
       console.error('Erreur lors du chargement des images', error);
       return [];
     }
-    return data.map(file => `${environment.supabaseUrl}/storage/v1/object/public/images/${file.name}`);
+    return data.map(file => `${environment.supabaseUrl}/storage/v1/object/public/images/${sub}/${file.name}`);
   }
 }
