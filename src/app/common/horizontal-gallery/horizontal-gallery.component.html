@@ -1,0 +1,7 @@
+<div class="h-screen flex overflow-x-hidden overflow-y-hidden space-x-4 py-4 px-2" id="gallery">
+  @for (image of images; track $index) {
+    <div class="flex-shrink-0 bg-cover bg-center rounded-lg" id="galleryContent">
+      <img [src]="image" class="lazyload">
+    </div>
+  }
+</div>
