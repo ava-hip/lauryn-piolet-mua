@@ -9,37 +9,29 @@ import {ScrollTrigger} from "gsap/ScrollTrigger";
   standalone: true,
   styleUrl: './horizontal-gallery.component.css'
 })
-export class HorizontalGalleryComponent implements AfterViewInit, OnChanges{
+export class HorizontalGalleryComponent implements OnChanges{
   @Input() images?: string[];
-
-   ngAfterViewInit(): void {
-    this.initGSAP();
-  }
+  isLoading: boolean = true;
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.initGSAP(); 
+    if (changes['images'] && this.images?.length) {
+      setTimeout(() => this.initGSAP(), 0);
+    }
   }
 
   private initGSAP() {
-    if (!this.images?.length) return;
-
     gsap.registerPlugin(ScrollTrigger);
-    
-    setTimeout(() => {
-      const contents: any = gsap.utils.toArray("#galleryContent");
-      if (!contents.length) return;
-
-      gsap.to(contents, {
-        x: () => window.innerWidth - (contents[0].offsetWidth * contents.length),
-        ease: "power1",
-        scrollTrigger: {
-          trigger: "#gallery",
-          pin: true,
-          scrub: 1,
-          invalidateOnRefresh: true,
-          end: () => "+=" + contents[0].offsetWidth,
-        }
-      });
-    }, 100); 
+    const contents: any = gsap.utils.toArray("#galleryContent");
+    gsap.to(contents, {
+      x: () => window.innerWidth - (contents[0].offsetWidth * contents.length),
+      ease: "power1",
+      scrollTrigger: {
+        trigger: "#gallery",
+        pin: true,
+        scrub: 1,
+        invalidateOnRefresh: true,
+        end: () => "+=" + contents[0].offsetWidth,
+      }
+    });
   }
 }
