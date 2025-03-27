@@ -1,7 +1,7 @@
 <header class="hover:bg-white/75">
   <div class="container mx-auto px-4 py-2">
     <!-- Desktop -->
-    <nav class="flex items-center justify-between py-6 md:py-10">
+    <nav class="flex items-center justify-between py-6 md:py-2">
       <div class="hidden md:flex flex-shrink-0">
         <a href="#">
           <h1 class="font-bold text-2xl">LAURYN PIOLET <br> Make up artist</h1>
@@ -21,7 +21,7 @@
         <div>
           <a routerLink="" class="text-2xl font-bold">L</a>
         </div>
-        <button id="menu-toggle" (click)="toggleMobileMenu()" class="text-gray-800 focus:outline-none">
+        <button #menuToggle (click)="toggleMobileMenu()" class="text-gray-800 focus:outline-none">
           <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -30,10 +30,12 @@
     </nav>
 
     @if (isMobileShow) {
-      <div id="mobile-menu" class="flex-col space-y-4 my-4 md:hidden">
-        <a routerLink="portfolio" class="block text-gray-800 hover:text-gray-600">Portfolio</a>
-        <a routerLink="about" class="block text-gray-800 hover:text-gray-600">About</a>
-        <a routerLink="contact" class="block text-gray-800 hover:text-gray-600">Contact</a>
+      <div #menuMobile class="flex-col space-y-4 my-4 md:hidden">
+        <a (click)="closeMenu()" routerLink="fashion" class="block text-gray-800 hover:text-gray-600">Fashion</a>
+        <a (click)="closeMenu()" routerLink="film" class="block text-gray-800 hover:text-gray-600">Film</a>
+        <a (click)="closeMenu()" routerLink="bridal" class="block text-gray-800 hover:text-gray-600">Bridal</a>
+        <a (click)="closeMenu()" routerLink="about" class="block text-gray-800 hover:text-gray-600">About</a>
+        <a (click)="closeMenu()" routerLink="contact" class="block text-gray-800 hover:text-gray-600">Contact</a>
       </div>
     }
   </div>
