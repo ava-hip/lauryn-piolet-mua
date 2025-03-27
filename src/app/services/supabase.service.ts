@@ -16,7 +16,6 @@ export class SupabaseService {
     const { data, error } = await this.supabase.storage
       .from('images')
       .list(sub);
-      console.log(data, error);
     if (error) {
       console.error('Erreur lors du chargement des images', error);
       return [];
