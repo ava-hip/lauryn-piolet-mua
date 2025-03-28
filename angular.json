@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/lauryn-piolet-mua",
+            "outputPath": "dist/lauryn-piolet-mua/browser",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
