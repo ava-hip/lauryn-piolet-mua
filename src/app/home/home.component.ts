@@ -1,31 +1,25 @@
-import {Component, OnInit} from '@angular/core';
-import {HorizontalGalleryComponent} from '../common/horizontal-gallery/horizontal-gallery.component';
-import { SupabaseService } from '../services/supabase.service';
+import {AfterViewInit, Component} from '@angular/core';
+import {gsap} from "gsap";
+import {ScrollTrigger} from "gsap/ScrollTrigger";
+import { ActivatedRoute } from '@angular/router';
+import { HorizontalGalleryComponent } from "../common/horizontal-gallery/horizontal-gallery.component";
 
 
 @Component({
   selector: 'app-home',
-  imports: [
-    HorizontalGalleryComponent,
-  ],
+  imports: [HorizontalGalleryComponent],
   templateUrl: './home.component.html',
   standalone: true,
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
   images: string[] = [];
 
-  constructor(private supabase: SupabaseService) {
+  constructor(private route: ActivatedRoute) {
+    this.route.data.subscribe(({ images }) => {
+      this.images = images; 
+    });
   }
-
-  async ngOnInit() {
-    console.log('Appel de getImages dans ngOnInit');
-    try {
-      this.images = await this.supabase.getImages("home");
-      console.log('Images récupérées :', this.images);
-    } catch (error) {
-      console.error('Erreur lors de la récupération des images', error);
-    }  }
 
 }

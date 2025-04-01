@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {AfterViewInit, Component, Input} from '@angular/core';
 import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 
@@ -9,29 +9,42 @@ import {ScrollTrigger} from "gsap/ScrollTrigger";
   standalone: true,
   styleUrl: './horizontal-gallery.component.css'
 })
-export class HorizontalGalleryComponent implements OnChanges{
+export class HorizontalGalleryComponent implements AfterViewInit{
   @Input() images?: string[];
-  isLoading: boolean = true;
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['images'] && this.images?.length) {
-      setTimeout(() => this.initGSAP(), 0);
+  ngAfterViewInit(): void {
+    const firstContent = document.querySelector<HTMLElement>("#galleryContent");
+    if (firstContent) {
+      const observer = new ResizeObserver(() => {
+        if (firstContent.offsetWidth > 0) {
+          observer.disconnect(); 
+          this.initGSAP(); 
+        }
+      });
+      observer.observe(firstContent); 
     }
   }
 
   private initGSAP() {
     gsap.registerPlugin(ScrollTrigger);
-    const contents: any = gsap.utils.toArray("#galleryContent");
+
+    const contents = gsap.utils.toArray<HTMLElement>("#galleryContent"); 
+    let maxWidth = 0;
+    contents.forEach((content) => {
+      maxWidth += content.offsetWidth;
+    });
+
     gsap.to(contents, {
-      x: () => window.innerWidth - (contents[0].offsetWidth * contents.length),
-      ease: "power1",
+      x: () => `-${maxWidth - window.innerWidth}`, 
+      ease: "power1.inOut",
       scrollTrigger: {
         trigger: "#gallery",
         pin: true,
         scrub: 1,
         invalidateOnRefresh: true,
-        end: () => "+=" + contents[0].offsetWidth,
+        end: `+=${maxWidth}`, 
       }
     });
+
   }
 }

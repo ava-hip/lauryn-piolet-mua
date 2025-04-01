@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { SupabaseService } from '../../services/supabase.service';
 import { GalleryComponent } from "../../common/gallery/gallery.component";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-fashion',
@@ -11,10 +11,9 @@ import { GalleryComponent } from "../../common/gallery/gallery.component";
 export class FashionComponent {
     images: string[] = [];
   
-    constructor(private supabase: SupabaseService) {
-    }
-  
-    async ngOnInit() {
-      this.images = await this.supabase.getImages("fashion");
+    constructor(private route: ActivatedRoute) {
+      this.route.data.subscribe(({ images }) => {
+        this.images = images; 
+      });
     }
 }
