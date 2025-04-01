@@ -9,11 +9,11 @@ export class SupabaseService {
   constructor(private http: HttpClient) {}
 
   async getImages(sub: string): Promise<string[]> {
-    const url = `/.netlify/functions/get-images?sub=${sub}`;
+    const url = `/.netlify/functions/supabase-images?sub=${sub}`;
 
     try {
       const response = await firstValueFrom(this.http.get<string[]>(url));
-      return response || [];
+      return response;
     } catch (error) {
       console.error('Erreur lors du chargement des images', error);
       return [];
