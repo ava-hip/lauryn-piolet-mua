@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { GalleryComponent } from "../../common/gallery/gallery.component";
-import { SupabaseService } from '../../services/supabase.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-bridal',
@@ -8,13 +8,12 @@ import { SupabaseService } from '../../services/supabase.service';
   templateUrl: './bridal.component.html',
   styleUrl: './bridal.component.css'
 })
-export class BridalComponent implements OnInit {
+export class BridalComponent {
   images: string[] = [];
 
-  constructor(private supabase: SupabaseService) {
-  }
-
-  async ngOnInit() {
-    this.images = await this.supabase.getImages("bridal");
+  constructor(private route: ActivatedRoute) {
+    this.route.data.subscribe(({ images }) => {
+      this.images = images; 
+    });
   }
 }

@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {AfterViewInit, Component, Input} from '@angular/core';
 import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 
@@ -9,14 +9,11 @@ import {ScrollTrigger} from "gsap/ScrollTrigger";
   standalone: true,
   styleUrl: './horizontal-gallery.component.css'
 })
-export class HorizontalGalleryComponent implements OnChanges{
+export class HorizontalGalleryComponent implements AfterViewInit{
   @Input() images?: string[];
-  isLoading: boolean = true;
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['images'] && this.images?.length) {
-      setTimeout(() => this.initGSAP(), 0);
-    }
+  ngAfterViewInit(): void {
+    this.initGSAP();
   }
 
   private initGSAP() {
@@ -24,13 +21,15 @@ export class HorizontalGalleryComponent implements OnChanges{
     const contents: any = gsap.utils.toArray("#galleryContent");
     gsap.to(contents, {
       x: () => window.innerWidth - (contents[0].offsetWidth * contents.length),
-      ease: "power1",
+      ease: "power1.inOut",
       scrollTrigger: {
         trigger: "#gallery",
+        start: 'top top',
         pin: true,
         scrub: 1,
         invalidateOnRefresh: true,
         end: () => "+=" + contents[0].offsetWidth,
+        anticipatePin: 1,
       }
     });
   }
