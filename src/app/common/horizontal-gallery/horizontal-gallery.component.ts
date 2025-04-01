@@ -13,24 +13,38 @@ export class HorizontalGalleryComponent implements AfterViewInit{
   @Input() images?: string[];
 
   ngAfterViewInit(): void {
-    this.initGSAP();
+    const firstContent = document.querySelector<HTMLElement>("#galleryContent");
+    if (firstContent) {
+      const observer = new ResizeObserver(() => {
+        if (firstContent.offsetWidth > 0) {
+          observer.disconnect(); 
+          this.initGSAP(); 
+        }
+      });
+      observer.observe(firstContent); 
+    }
   }
 
   private initGSAP() {
     gsap.registerPlugin(ScrollTrigger);
-    const contents: any = gsap.utils.toArray("#galleryContent");
+
+    const contents = gsap.utils.toArray<HTMLElement>("#galleryContent"); 
+    let maxWidth = 0;
+    contents.forEach((content) => {
+      maxWidth += content.offsetWidth;
+    });
+
     gsap.to(contents, {
-      x: () => window.innerWidth - (contents[0].offsetWidth * contents.length),
+      x: () => `-${maxWidth - window.innerWidth}`, 
       ease: "power1.inOut",
       scrollTrigger: {
         trigger: "#gallery",
-        start: 'top top',
         pin: true,
         scrub: 1,
         invalidateOnRefresh: true,
-        end: () => "+=" + contents[0].offsetWidth,
-        anticipatePin: 1,
+        end: `+=${maxWidth}`, 
       }
     });
+
   }
 }
