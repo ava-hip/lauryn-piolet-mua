@@ -1,25 +1,22 @@
 import { Injectable } from '@angular/core';
-import { createClient, SupabaseClient } from '@supabase/supabase-js';
-import { environment } from '../../environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { firstValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SupabaseService {
-  private supabase: SupabaseClient;
-
-  constructor() {
-    this.supabase = createClient(environment.supabaseUrl!, environment.supabaseKey!);
-  }
+  constructor(private http: HttpClient) {}
 
   async getImages(sub: string): Promise<string[]> {
-    const { data, error } = await this.supabase.storage
-      .from('images')
-      .list(sub);
-    if (error) {
+    const url = `/.netlify/functions/supabase-images?sub=${sub}`;
+
+    try {
+      const response = await firstValueFrom(this.http.get<string[]>(url));
+      return response;
+    } catch (error) {
       console.error('Erreur lors du chargement des images', error);
       return [];
     }
-    return data.map(file => `${environment.supabaseUrl}/storage/v1/object/public/images/${sub}/${file.name}`);
   }
 }

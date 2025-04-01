@@ -2,10 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {HorizontalGalleryComponent} from '../common/horizontal-gallery/horizontal-gallery.component';
 import { SupabaseService } from '../services/supabase.service';
 
+
 @Component({
   selector: 'app-home',
   imports: [
-    HorizontalGalleryComponent
+    HorizontalGalleryComponent,
   ],
   templateUrl: './home.component.html',
   standalone: true,
@@ -19,7 +20,12 @@ export class HomeComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.images = await this.supabase.getImages("home");
-  }
+    console.log('Appel de getImages dans ngOnInit');
+    try {
+      this.images = await this.supabase.getImages("home");
+      console.log('Images récupérées :', this.images);
+    } catch (error) {
+      console.error('Erreur lors de la récupération des images', error);
+    }  }
 
 }
