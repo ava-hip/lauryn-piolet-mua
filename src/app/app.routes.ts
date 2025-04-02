@@ -36,6 +36,7 @@ export const routes: Routes = [
       images: () => inject(SupabaseService).getImages("bridal")
     }
   },
-  {path: 'about', component: AboutComponent},
-  {path: 'contact', component: ContactComponent}
+  { path: 'about', component: AboutComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full'},
 ];

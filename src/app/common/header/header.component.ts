@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import {RouterLink} from '@angular/router';
 
 @Component({
@@ -11,22 +11,12 @@ import {RouterLink} from '@angular/router';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  isMobileShow: boolean = false;
-  @ViewChild('menuMobile') menuMobile!: ElementRef;
-  @ViewChild('menuToggle') menuToggle!: ElementRef;
-
-  toggleMobileMenu() {
-    this.isMobileShow =! this.isMobileShow
-  }
-
-  closeMenu() {
-    this.isMobileShow = false;
-  }
-
-  @HostListener('document:click', ['$event'])
-  onClickOutside(event: Event) {
-    if (!this.menuMobile?.nativeElement.contains(event.target) && !this.menuToggle?.nativeElement.contains(event.target)) {
-      this.closeMenu();
+  closeMobileMenu() {
+    const mobileNav = document.getElementById('mobile-nav');
+    const button = document.getElementById('dropdownDefaultButton');
+    if (mobileNav && button) {
+      mobileNav.classList.add('hidden');
+      button.setAttribute('aria-expanded', 'false');
     }
   }
 }
