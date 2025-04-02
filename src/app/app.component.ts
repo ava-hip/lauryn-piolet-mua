@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {HeaderComponent} from './common/header/header.component';
 import {FooterComponent} from './common/footer/footer.component';
+import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,12 @@ import {FooterComponent} from './common/footer/footer.component';
   standalone: true,
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+
+  ngOnInit(): void {
+    initFlowbite();
+  }
+  
   title = 'lauryn-piolet-mua';
+
 }
