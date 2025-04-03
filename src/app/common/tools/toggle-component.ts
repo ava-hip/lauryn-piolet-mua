@@ -2,7 +2,6 @@ import {Component, HostListener} from "@angular/core";
 
 @Component({template: ''})
 export abstract class ToggleComponent {
-
     hidden: boolean = true
     abstract toggleId: string
 
