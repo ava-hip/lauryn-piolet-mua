@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {RouterLink} from '@angular/router';
+import { ToggleComponent } from '../tools/toggle-component';
 
 @Component({
   selector: 'app-header',
@@ -10,13 +11,6 @@ import {RouterLink} from '@angular/router';
   standalone: true,
   styleUrl: './header.component.css'
 })
-export class HeaderComponent {
-  closeMobileMenu() {
-    const mobileNav = document.getElementById('mobile-nav');
-    const button = document.getElementById('dropdownDefaultButton');
-    if (mobileNav && button) {
-      mobileNav.classList.add('hidden');
-      button.setAttribute('aria-expanded', 'false');
-    }
-  }
+export class HeaderComponent extends ToggleComponent{
+  override toggleId: string = "menu-toggle";
 }
