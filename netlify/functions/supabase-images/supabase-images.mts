@@ -12,8 +12,13 @@ export default async (request: Request, context: Context) => {
     const sub = url.searchParams.get('sub')
 
     const { data, error } = await supabase.storage.from('images').list(sub!);
+    
 
-    return new Response(JSON.stringify(data!.map(file => `${supabaseUrl}/storage/v1/object/public/images/${sub}/${file.name}`)), {
+    return new Response(JSON.stringify(
+      data!
+      .filter(file => file.name.includes('.'))
+      .map(file => `${supabaseUrl}/storage/v1/object/public/images/${sub}/${file.name}`)
+    ), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }
     })

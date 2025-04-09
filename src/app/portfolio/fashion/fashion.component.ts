@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { GalleryComponent } from "../../common/gallery/gallery.component";
 import { ActivatedRoute } from '@angular/router';
+import { Image } from '../../common/models/image';
+import { GalleryComponent } from '../../common/components/gallery/gallery.component';
 
 @Component({
   selector: 'app-fashion',
@@ -9,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './fashion.component.css'
 })
 export class FashionComponent {
-    images: string[] = [];
+    images: Image[] = [];
   
     constructor(private route: ActivatedRoute) {
       this.route.data.subscribe(({ images }) => {
