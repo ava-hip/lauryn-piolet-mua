@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { ActivatedRouteSnapshot, Routes } from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {AboutComponent} from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
@@ -7,6 +7,7 @@ import { FilmComponent } from './portfolio/film/film.component';
 import { FashionComponent } from './portfolio/fashion/fashion.component';
 import { SupabaseService } from './services/supabase.service';
 import { inject } from '@angular/core';
+import { ShootingGalleryComponent } from './common/components/gallery/shooting-gallery/shooting-gallery.component';
 
 export const routes: Routes = [
   { 
@@ -23,10 +24,28 @@ export const routes: Routes = [
     }
   },
   { 
+    path: 'film/:id', 
+    component: ShootingGalleryComponent,
+    resolve: {
+      images: (route: ActivatedRouteSnapshot) => {
+        return inject(SupabaseService).getImages("film/" + route.paramMap.get("id"))
+      }
+    }
+  },
+  { 
     path: 'fashion', 
     component: FashionComponent,
     resolve: {
       images: () => inject(SupabaseService).getImages("fashion")
+    }
+  },
+  { 
+    path: 'fashion/:id', 
+    component: ShootingGalleryComponent,
+    resolve: {
+      images: (route: ActivatedRouteSnapshot) => {
+        return inject(SupabaseService).getImages("fashion/" + route.paramMap.get("id"))
+      }
     }
   },
   {

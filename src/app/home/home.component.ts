@@ -2,7 +2,8 @@ import {AfterViewInit, Component} from '@angular/core';
 import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import { ActivatedRoute } from '@angular/router';
-import { HorizontalGalleryComponent } from "../common/horizontal-gallery/horizontal-gallery.component";
+import { Image } from '../common/models/image';
+import { HorizontalGalleryComponent } from '../common/components/gallery/horizontal-gallery/horizontal-gallery.component';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { HorizontalGalleryComponent } from "../common/horizontal-gallery/horizon
 })
 export class HomeComponent {
 
-  images: string[] = [];
+  images: Image[] = [];
 
   constructor(private route: ActivatedRoute) {
     this.route.data.subscribe(({ images }) => {

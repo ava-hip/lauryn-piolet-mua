@@ -1,11 +1,12 @@
 import {AfterViewInit, Component, Input} from '@angular/core';
 import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
-import { Image } from '../models/image';
+import { ImageLoaderComponent } from '../../image-loader/image-loader.component';
+import { Image } from '../../../models/image';
 
 @Component({
   selector: 'app-horizontal-gallery',
-  imports: [],
+  imports: [ImageLoaderComponent],
   templateUrl: './horizontal-gallery.component.html',
   standalone: true,
   styleUrl: './horizontal-gallery.component.css'

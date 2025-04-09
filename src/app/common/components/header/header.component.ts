@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {RouterLink} from '@angular/router';
-import { ToggleComponent } from '../tools/toggle-component';
+import { ToggleComponent } from '../../tools/toggle-component';
 
 @Component({
   selector: 'app-header',

@@ -1,0 +1,15 @@
+<div class="relative w-full h-full">
+    <div
+      class="absolute inset-0 bg-gray-100 animate-pulse z-0"
+      [class.hidden]="loaded"
+    ></div>
+  
+    <img
+      [src]="src"
+      loading="lazy"
+      (load)="loaded = true"
+      [class.opacity-0]="!loaded"
+      [class]="class"
+      class="transition-opacity duration-500 z-10 w-full min-h-[600px] object-cover"
+    />
+  </div>
