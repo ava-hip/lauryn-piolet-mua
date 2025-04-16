@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import emailjs from 'emailjs-com';
 import { environment } from '../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
@@ -29,7 +30,7 @@ export class ContactComponent {
     return this.contactForm.get('message')!;
   }
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,  private http: HttpClient) {
     this.contactForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       message: ['', Validators.required],
@@ -43,16 +44,17 @@ export class ContactComponent {
     this.sending = true;
     this.emailSent = false;
 
-    emailjs.send(
-      this.serviceId,
-      this.templateId,
-      this.contactForm.value,
-      this.publicKey
-    ).then(() => {
-      this.contactForm.reset();
-      this.emailSent = true;
-    }).finally(() => {
-      this.sending = false;
+    this.http.post('/.netlify/functions/send-email', this.contactForm.value).subscribe({
+      next: () => {
+        this.contactForm.reset();
+        this.emailSent = true;
+      },
+      error: (err) => {
+        console.error('Erreur lors de l’envoi du mail :', err);
+      },
+      complete: () => {
+        this.sending = false;
+      }
     });
   }
 }
