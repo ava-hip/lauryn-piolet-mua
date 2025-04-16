@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
 import { Image } from '../../../models/image';
 import { ActivatedRoute } from '@angular/router';
-import { NgOptimizedImage } from '@angular/common';
 import { ImageLoaderComponent } from "../../image-loader/image-loader.component";
 
 @Component({
   selector: 'app-shooting-gallery',
   imports: [
-    NgOptimizedImage,
     ImageLoaderComponent
 ],
   templateUrl: './shooting-gallery.component.html',
