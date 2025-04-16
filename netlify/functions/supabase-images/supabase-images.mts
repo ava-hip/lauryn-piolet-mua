@@ -1,8 +1,9 @@
 import { Context } from '@netlify/functions'
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
+import { environment } from '../../../src/environments/environment';
 
-const supabaseUrl = process.env['SUPABASE_URL']!;
-const supabaseKey = process.env['SUPABASE_KEY']!;
+const supabaseUrl = environment.SUPABASE_URL!;
+const supabaseKey = environment.SUPABASE_KEY!;
 const supabase: SupabaseClient = createClient(supabaseUrl, supabaseKey);
 
 
