@@ -34,7 +34,7 @@ export class ContactComponent {
     this.contactForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       message: ['', Validators.required],
-      honeypot: [''] // champ invisible anti-bot
+      honeypot: [''] 
     });
   }
 
@@ -44,17 +44,16 @@ export class ContactComponent {
     this.sending = true;
     this.emailSent = false;
 
-    this.http.post('/.netlify/functions/send-email', this.contactForm.value).subscribe({
-      next: () => {
-        this.contactForm.reset();
-        this.emailSent = true;
-      },
-      error: (err) => {
-        console.error('Erreur lors de l’envoi du mail :', err);
-      },
-      complete: () => {
-        this.sending = false;
-      }
+    emailjs.send(
+      this.serviceId,
+      this.templateId,
+      this.contactForm.value,
+      this.publicKey
+    ).then(() => {
+      this.contactForm.reset();
+      this.emailSent = true;
+    }).finally(() => {
+      this.sending = false;
     });
   }
 }
