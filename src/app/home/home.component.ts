@@ -1,9 +1,7 @@
-import {AfterViewInit, Component} from '@angular/core';
-import {gsap} from "gsap";
-import {ScrollTrigger} from "gsap/ScrollTrigger";
-import { ActivatedRoute } from '@angular/router';
-import { Image } from '../common/models/image';
+import {Component} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';;
 import { HorizontalGalleryComponent } from '../common/components/gallery/horizontal-gallery/horizontal-gallery.component';
+import { Project } from '../common/models/projects';
 
 
 @Component({
@@ -15,11 +13,12 @@ import { HorizontalGalleryComponent } from '../common/components/gallery/horizon
 })
 export class HomeComponent {
 
-  images: Image[] = [];
+  project: Project | undefined;
+
 
   constructor(private route: ActivatedRoute) {
-    this.route.data.subscribe(({ images }) => {
-      this.images = images; 
+    this.route.data.subscribe(({ project }) => {
+      this.project = project;
     });
   }
 

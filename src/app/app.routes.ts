@@ -8,19 +8,20 @@ import { FashionComponent } from './portfolio/fashion/fashion.component';
 import { SupabaseService } from './services/supabase.service';
 import { inject } from '@angular/core';
 import { ShootingGalleryComponent } from './common/components/gallery/shooting-gallery/shooting-gallery.component';
+import { ProjectService } from './services/project.service';
 
 export const routes: Routes = [
   { 
     path: '', 
     component: HomeComponent,
     resolve: {
-      images: () => inject(SupabaseService).getImages("home")
+      project: () => inject(ProjectService).getProjectBySlug("home")
     }
   },
   { path: 'film', 
     component: FilmComponent,     
     resolve: {
-      images: () => inject(SupabaseService).getImages("film")
+      projects: () => inject(ProjectService).getProjectByCategory("film")
     }
   },
   { 
@@ -36,7 +37,7 @@ export const routes: Routes = [
     path: 'fashion', 
     component: FashionComponent,
     resolve: {
-      images: () => inject(SupabaseService).getImages("fashion")
+      projects: () => inject(ProjectService).getProjectByCategory("fashion")
     }
   },
   { 
@@ -52,7 +53,7 @@ export const routes: Routes = [
     path: 'bridal', 
     component: BridalComponent,
     resolve: {
-      images: () => inject(SupabaseService).getImages("bridal")
+      projects: () => inject(ProjectService).getProjectByCategory("bridal")
     }
   },
   { path: 'about', component: AboutComponent },

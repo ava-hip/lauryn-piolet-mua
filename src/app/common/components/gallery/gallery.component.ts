@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { TitleCasePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ImageLoaderComponent } from '../image-loader/image-loader.component';
-import { Image } from '../../models/image';
+import { Project } from '../../models/projects';
 
 @Component({
   selector: 'app-gallery',
@@ -15,5 +15,5 @@ import { Image } from '../../models/image';
   styleUrl: './gallery.component.css'
 })
 export class GalleryComponent {
-  @Input() images: Image[] = [];
+  @Input() projects: Project[] | undefined;
 }

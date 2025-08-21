@@ -2,7 +2,7 @@ import {AfterViewInit, Component, Input} from '@angular/core';
 import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import { ImageLoaderComponent } from '../../image-loader/image-loader.component';
-import { Image } from '../../../models/image';
+import { Project } from '../../../models/projects';
 
 @Component({
   selector: 'app-horizontal-gallery',
@@ -12,7 +12,7 @@ import { Image } from '../../../models/image';
   styleUrl: './horizontal-gallery.component.css'
 })
 export class HorizontalGalleryComponent implements AfterViewInit{
-  @Input() images?: Image[];
+  @Input() project?: Project;
 
   ngAfterViewInit(): void {
     const firstContent = document.querySelector<HTMLElement>("#galleryContent");

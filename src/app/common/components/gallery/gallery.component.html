@@ -1,12 +1,12 @@
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-    @for (image of images ; track $index) {
-        <a [routerLink]="image.shooting" class="relative cursor-pointer flex justify-center">
+    @for (project of projects ; track $index) {
+        <a [routerLink]="project.slug" class="relative cursor-pointer flex justify-center">
             <app-image-loader
-                [src]="image.image"
+                [src]="project.images[0]"
                 class="object-cover"
             />
             <div class="absolute bg-white inset-0 z-10 text-center flex flex-col items-center justify-center opacity-0 hover:opacity-100 bg-opacity-50 duration-300">
-                {{ image.shooting | titlecase }}
+                {{ project.title| titlecase }}
             </div> 
         </a>
     }
