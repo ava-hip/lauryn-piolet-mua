@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Image } from '../../common/models/image';
 import { GalleryComponent } from '../../common/components/gallery/gallery.component';
 import { Project } from '../../common/models/projects';
 

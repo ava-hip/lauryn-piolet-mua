@@ -5,7 +5,6 @@ import { ContactComponent } from './contact/contact.component';
 import { BridalComponent } from './portfolio/bridal/bridal.component';
 import { FilmComponent } from './portfolio/film/film.component';
 import { FashionComponent } from './portfolio/fashion/fashion.component';
-import { SupabaseService } from './services/supabase.service';
 import { inject } from '@angular/core';
 import { ShootingGalleryComponent } from './common/components/gallery/shooting-gallery/shooting-gallery.component';
 import { ProjectService } from './services/project.service';
