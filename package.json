@@ -2,11 +2,13 @@
   "name": "lauryn-piolet-mua",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+  "ng": "ng",
+  "start": "ng serve",
+  "build": "ng build",
+  "watch": "ng build --watch --configuration development",
+  "build:dev": "node scripts/generate-env.js && ng build --configuration development",
+  "build:prod": "node scripts/generate-env.js && ng build --configuration production",
+  "test": "ng test"
   },
   "private": true,
   "dependencies": {

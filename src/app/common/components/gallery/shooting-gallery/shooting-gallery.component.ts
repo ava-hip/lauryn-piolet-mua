@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Image } from '../../../models/image';
 import { ActivatedRoute } from '@angular/router';
 import { ImageLoaderComponent } from "../../image-loader/image-loader.component";
+import { Project } from '../../../models/projects';
 
 @Component({
   selector: 'app-shooting-gallery',
@@ -15,13 +15,11 @@ import { ImageLoaderComponent } from "../../image-loader/image-loader.component"
   ]
 })
 export class ShootingGalleryComponent {
-  images: Image[] = [];
-  loaded: boolean[] = [];
+  project: Project | undefined;
   
   constructor(private route: ActivatedRoute) {
-    this.route.data.subscribe(({ images }) => {
-      this.images = images; 
-      this.loaded = this.images.map(() => false);
+    this.route.data.subscribe(({ project }) => {
+      this.project = project; 
     });
   }
 }

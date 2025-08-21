@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Image } from '../../common/models/image';
 import { GalleryComponent } from '../../common/components/gallery/gallery.component';
+import { Project } from '../../common/models/projects';
 
 @Component({
   selector: 'app-bridal',
@@ -10,11 +10,11 @@ import { GalleryComponent } from '../../common/components/gallery/gallery.compon
   styleUrl: './bridal.component.css'
 })
 export class BridalComponent {
-  images: Image[] = [];
+  projects: Project[]|undefined;
 
   constructor(private route: ActivatedRoute) {
-    this.route.data.subscribe(({ images }) => {
-      this.images = images; 
+    this.route.data.subscribe(({ projects }) => {
+      this.projects = projects; 
     });
   }
 }
