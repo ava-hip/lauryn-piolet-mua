@@ -25,11 +25,11 @@ export const routes: Routes = [
     }
   },
   { 
-    path: 'film/:id', 
+    path: 'film/:slug', 
     component: ShootingGalleryComponent,
     resolve: {
-      images: (route: ActivatedRouteSnapshot) => {
-        return inject(SupabaseService).getImages("film/" + route.paramMap.get("id"))
+      project: (route: ActivatedRouteSnapshot) => {
+        return inject(ProjectService).getProjectBySlug(route.paramMap.get("slug")!)
       }
     }
   },
@@ -41,11 +41,11 @@ export const routes: Routes = [
     }
   },
   { 
-    path: 'fashion/:id', 
+    path: 'fashion/:slug', 
     component: ShootingGalleryComponent,
     resolve: {
-      images: (route: ActivatedRouteSnapshot) => {
-        return inject(SupabaseService).getImages("fashion/" + route.paramMap.get("id"))
+      project: (route: ActivatedRouteSnapshot) => {
+        return inject(ProjectService).getProjectBySlug(route.paramMap.get("slug")!)
       }
     }
   },
