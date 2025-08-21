@@ -1,8 +1,8 @@
 export const environment = { 
     production: true,
-    EMAILJS_SERVICE_ID: process.env['EMAILJS_SERVICE_ID'],
-    EMAILJS_TEMPLATE_ID: process.env['EMAILJS_TEMPLATE_ID'],
-    EMAILJS_PUBLIC_KEY: process.env['EMAILJS_PUBLIC_KEY']
+    EMAILJS_SERVICE_ID: '__EMAILJS_SERVICE_ID__',
+    EMAILJS_TEMPLATE_ID: '__EMAILJS_TEMPLATE_ID__',
+    EMAILJS_PUBLIC_KEY: '__EMAILJS_PUBLIC_KEY__'
 };
 
 
