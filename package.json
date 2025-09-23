@@ -2,25 +2,25 @@
   "name": "lauryn-piolet-mua",
   "version": "0.0.0",
   "scripts": {
-  "ng": "ng",
-  "start": "ng serve",
-  "build": "ng build",
-  "watch": "ng build --watch --configuration development",
-  "build:dev": "node scripts/generate-env.js && ng build --configuration development",
-  "build:prod": "node scripts/generate-env.js && ng build --configuration production",
-  "test": "ng test"
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "build:dev": "node scripts/generate-env.js && ng build --configuration development",
+    "build:prod": "node scripts/generate-env.js && ng build --configuration production",
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^19.2.4",
-    "@angular/cdk": "^19.2.7",
-    "@angular/common": "^19.2.4",
-    "@angular/compiler": "^19.2.4",
-    "@angular/core": "^19.2.4",
-    "@angular/forms": "^19.2.4",
-    "@angular/platform-browser": "^19.2.4",
-    "@angular/platform-browser-dynamic": "^19.2.4",
-    "@angular/router": "^19.2.4",
+    "@angular/animations": "^20.3.1",
+    "@angular/cdk": "^20.2.4",
+    "@angular/common": "^20.3.1",
+    "@angular/compiler": "^20.3.1",
+    "@angular/core": "^20.3.1",
+    "@angular/forms": "^20.3.1",
+    "@angular/platform-browser": "^20.3.1",
+    "@angular/platform-browser-dynamic": "^20.3.1",
+    "@angular/router": "^20.3.1",
     "@netlify/functions": "^3.0.4",
     "@supabase/auth-js": "^2.69.1",
     "@supabase/supabase-js": "^2.49.3",
@@ -35,9 +35,9 @@
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^19.2.5",
-    "@angular/cli": "^19.2.5",
-    "@angular/compiler-cli": "^19.2.4",
+    "@angular/build": "^20.3.2",
+    "@angular/cli": "^20.3.2",
+    "@angular/compiler-cli": "^20.3.1",
     "@ngx-env/builder": "^19.0.4",
     "@types/jasmine": "~5.1.0",
     "autoprefixer": "^10.4.20",
@@ -49,7 +49,7 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "postcss": "^8.5.1",
     "tailwindcss": "^3.4.17",
-    "typescript": "5.5"
+    "typescript": "5.9.2"
   },
   "overrides": {
     "@supabase/supabase-js": {
