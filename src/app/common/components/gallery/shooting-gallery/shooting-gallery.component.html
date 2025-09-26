@@ -1,10 +1,19 @@
-<div class="px-5 sm:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        @for (image of project?.images ; track $index) {
-            <app-image-loader
-                [src]="image"
-                class="object-cover"
-            />
-        }
+<div class="px-5 sm:px-8 flex flex-col gap-4">
+  <div class="masonry columns-1 md:columns-2 lg:columns-3 [column-gap:1rem]">
+    @for (image of project?.images; track $index) {
+      <div class="mb-4 break-inside-avoid">
+        <app-image-loader
+          [src]="image"
+          class="rounded-lg w-full"
+        ></app-image-loader>
+      </div>
+    }
+  </div>
+  @if (project?.category === "fashion") {
+    <div class="mt-6">
+      <div>Model: {{ project?.model }}</div>
+      <div>Photograph: {{ project?.photographer }}</div>
     </div>
+  }
 </div>
+

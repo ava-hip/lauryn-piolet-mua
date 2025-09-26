@@ -7,19 +7,18 @@ import { Project } from '../../../models/projects';
   selector: 'app-shooting-gallery',
   imports: [
     ImageLoaderComponent
-],
+  ],
   templateUrl: './shooting-gallery.component.html',
   styleUrl: './shooting-gallery.component.css',
-  providers: [
-    
-  ]
+  standalone: true,
+  providers: []
 })
 export class ShootingGalleryComponent {
   project: Project | undefined;
-  
+
   constructor(private route: ActivatedRoute) {
     this.route.data.subscribe(({ project }) => {
-      this.project = project; 
+      this.project = project;
     });
   }
 }

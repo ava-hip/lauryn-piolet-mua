@@ -1,15 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 @plugin "flowbite/plugin";
 @source "../node_modules/flowbite";
 
-
+@font-face {
+  font-family: 'MilkyWalky';
+  src: url('assets/fonts/MilkyWalky/MilkyWalky-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 .mulish-300 {
    font-family: "Mulish", serif;
    font-optical-sizing: auto;
    font-weight: 300;
    font-style: normal;
+}
+
+.milkywalky-300 {
+  font-family: "MilkyWalky", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.milkywalky-600 {
+  font-family: "MilkyWalky", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
