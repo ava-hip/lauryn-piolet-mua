@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-image-loader',
@@ -10,10 +10,12 @@ import { Component, Input } from '@angular/core';
 export class ImageLoaderComponent {
   @Input() src!: string;
   @Input() class!: string;
+  @Output() loadedEvent = new EventEmitter<void>();
 
-  loaded = false; 
+  loaded: boolean = false
 
-  simulateDelay() {
-    setTimeout(() => this.loaded = true, 1000); // Simule 1s de chargement
+  onLoad() {
+    this.loaded = true;
+    this.loadedEvent.emit();
   }
 }

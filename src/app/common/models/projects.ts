@@ -4,5 +4,7 @@ export interface Project {
   category: string;
   slug: string;
   description: string;
-  images: string[]; 
+  images: string[];
+  model: string;
+  photographer: string;
 }
