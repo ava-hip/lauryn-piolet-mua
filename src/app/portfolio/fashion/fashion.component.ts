@@ -7,14 +7,15 @@ import { Project } from '../../common/models/projects';
   selector: 'app-fashion',
   imports: [GalleryComponent],
   templateUrl: './fashion.component.html',
+  standalone: true,
   styleUrl: './fashion.component.css'
 })
 export class FashionComponent {
     projects: Project[] | undefined;
-  
+
     constructor(private route: ActivatedRoute) {
       this.route.data.subscribe(({ projects }) => {
-        this.projects = projects; 
+        this.projects = projects;
       });
     }
 }

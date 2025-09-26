@@ -6,7 +6,6 @@
     "slug": "home",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse scelerisque erat et risus sagittis semper. Quisque aliquam posuere lorem, eget ornare odio tincidunt vel.",
     "images": [
-      "https://res.cloudinary.com/dt8qryjfy/image/upload/v1755762898/simulacre-1_uiepqa.jpg",
       "https://res.cloudinary.com/dt8qryjfy/image/upload/v1755762430/underwater-2_fxhnr0.jpg",
       "https://res.cloudinary.com/dt8qryjfy/image/upload/v1755769602/noname-2_owugot.jpg",
       "https://res.cloudinary.com/dt8qryjfy/image/upload/v1755769591/noname-1_hwrks0.jpg"
@@ -40,6 +39,17 @@
   },
   {
     "id": 4,
+    "title": "Coquette",
+    "category": "fashion",
+    "slug": "coquette",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse scelerisque erat et risus sagittis semper. Quisque aliquam posuere lorem, eget ornare odio tincidunt vel.",
+    "images": [
+      "https://res.cloudinary.com/dt8qryjfy/image/upload/v1755762441/noeud-1_rz0ugl.jpg",
+      "https://res.cloudinary.com/dt8qryjfy/image/upload/v1755762442/noeud-2_wcqiww.jpg"
+    ]
+  },
+  {
+    "id": 5,
     "title": "Muse",
     "category": "film",
     "slug": "muse",
@@ -51,7 +61,7 @@
     ]
   },
   {
-    "id": 5,
+    "id": 6,
     "title": "Shooting Ink",
     "category": "fashion",
     "slug": "ink",
@@ -62,7 +72,7 @@
     ]
   },
   {
-    "id": 6,
+    "id": 7,
     "title": "Schéma",
     "category": "film",
     "slug": "schema",
@@ -71,17 +81,6 @@
       "https://res.cloudinary.com/dt8qryjfy/image/upload/v1758624686/schema-1_aikxzx.jpg",
       "https://res.cloudinary.com/dt8qryjfy/image/upload/v1758624678/schema-2_lwao3p.jpg",
       "https://res.cloudinary.com/dt8qryjfy/image/upload/v1758624682/schema-3_p7ivzj.jpg"
-    ]
-  },
-  {
-    "id": 7,
-    "title": "Coquette",
-    "category": "fashion",
-    "slug": "coquette",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse scelerisque erat et risus sagittis semper. Quisque aliquam posuere lorem, eget ornare odio tincidunt vel.",
-    "images": [
-      "https://res.cloudinary.com/dt8qryjfy/image/upload/v1755762441/noeud-1_rz0ugl.jpg",
-      "https://res.cloudinary.com/dt8qryjfy/image/upload/v1755762442/noeud-2_wcqiww.jpg"
     ]
   }
 ]

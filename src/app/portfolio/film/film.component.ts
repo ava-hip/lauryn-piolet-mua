@@ -7,6 +7,7 @@ import { Project } from '../../common/models/projects';
   selector: 'app-film',
   imports: [GalleryComponent],
   templateUrl: './film.component.html',
+  standalone: true,
   styleUrl: './film.component.css'
 })
 export class FilmComponent {
@@ -15,7 +16,6 @@ export class FilmComponent {
   constructor(private route: ActivatedRoute) {
     this.route.data.subscribe(({ projects }) => {
       this.projects = projects;
-      console.log(projects)
     });
   }
 }

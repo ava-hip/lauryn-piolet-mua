@@ -1,12 +1,14 @@
 <div class="h-full mx-auto m-12">
   <h1 class="my-3 text-center text-4xl font-bold">Contact</h1>
   <div class="flex flex-col gap-2 items-center">
-    <p>Contact me on email&#64;mail.fr or drop me a message below:</p>
+    <p>Contact me at
+      <a href="mailto:lauryn.makeupartist@outlook.fr" class="hover:underline">
+        lauryn.makeupartist&#64;outlook.fr
+      </a>
+      or drop me a message below:
+    </p>
     <form [formGroup]="contactForm" (ngSubmit)="sendEmail()" class="w-1/2">
-      <!-- Hidden honeypot field -->
       <input type="text" formControlName="honeypot" style="display: none" />
-    
-      <!-- Email -->
       <input
         type="email"
         formControlName="email"
@@ -23,8 +25,6 @@
           }
         </div>
       }
-    
-      <!-- Message -->
       <textarea
         formControlName="message"
         placeholder="Message"
@@ -39,13 +39,11 @@
           }
         </div>
       }
-    
-      <!-- Submit Button -->
       <div class="text-center mt-4 flex items-center justify-center gap-2">
         <button
           type="submit"
           [disabled]="contactForm.invalid || sending"
-          class="cursor-pointer px-8 py-2 font-semibold text-neutral-700 underline disabled:opacity-50"
+          class="cursor-pointer px-8 py-2 font-semibold text-neutral-700 disabled:opacity-50"
         >
         @if (emailSent) {
           Sent
@@ -53,8 +51,6 @@
           {{ sending ? 'Sending...' : 'Send' }}
         }
         </button>
-      
-
       </div>
     </form>
   </div>
