@@ -18,9 +18,9 @@ export class ContactComponent {
   sending = false;
   emailSent = false;
 
-  serviceId = environment.EMAILJS_SERVICE_ID || '';
-  templateId = environment.EMAILJS_TEMPLATE_ID || '';
-  publicKey = environment.EMAILJS_PUBLIC_KEY || '';
+  serviceId = environment.emailjs.serviceId || '';
+  templateId = environment.emailjs.templateId || '';
+  publicKey = environment.emailjs.publicKey || '';
 
   get email() {
   return this.contactForm.get('email')!;
@@ -34,7 +34,7 @@ export class ContactComponent {
     this.contactForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       message: ['', Validators.required],
-      honeypot: [''] 
+      honeypot: ['']
     });
   }
 
