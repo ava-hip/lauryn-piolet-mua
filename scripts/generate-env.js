@@ -1,18 +1,18 @@
 const fs = require('fs');
 const path = require('path');
 
-const envPath = path.join(__dirname, '../src/environments/environment.ts');
+const envFile = path.join(__dirname, '../src/environments/environment.prod.ts');
 
-let content = fs.readFileSync(envPath, 'utf8');
+if (fs.existsSync(envFile)) {
+  let content = fs.readFileSync(envFile, 'utf8');
 
-// Remplace les placeholders par les variables d'environnement
-content = content.replace('__SUPABASE_URL__', process.env.SUPABASE_URL || '');
-content = content.replace('__SUPABASE_ANON_KEY__', process.env.SUPABASE_ANON_KEY || '');
-content = content.replace('__EMAILJS_SERVICE_ID__', process.env.EMAILJS_SERVICE_ID || '');
-content = content.replace('__EMAILJS_TEMPLATE_ID__', process.env.EMAILJS_TEMPLATE_ID || '');
-content = content.replace('__EMAILJS_PUBLIC_KEY__', process.env.EMAILJS_PUBLIC_KEY || '');
+  content = content.replace('${EMAILJS_SERVICE_ID}', process.env.EMAILJS_SERVICE_ID || '');
+  content = content.replace('${EMAILJS_TEMPLATE_ID}', process.env.EMAILJS_TEMPLATE_ID || '');
+  content = content.replace('${EMAILJS_PUBLIC_KEY}', process.env.EMAILJS_PUBLIC_KEY || '');
 
-// Écrit le fichier final
-fs.writeFileSync(envPath, content);
-
-console.log('✅ environment.ts mis à jour avec les variables d\'environnement');
+  fs.writeFileSync(envFile, content);
+  console.log('✅ Variables d\'environnement injectées dans environment.prod.ts');
+} else {
+  console.error('❌ Fichier environment.prod.ts introuvable');
+  process.exit(1);
+}
