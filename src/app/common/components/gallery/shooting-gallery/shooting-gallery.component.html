@@ -9,11 +9,13 @@
       </div>
     }
   </div>
-  @if (project?.category === "fashion") {
     <div class="mt-6">
+      @if (project?.category === "fashion") {
       <div>Model: {{ project?.model }}</div>
       <div>Photograph: {{ project?.photographer }}</div>
+      } @else {
+        <div>{{ project?.model }}</div>
+      }
     </div>
-  }
 </div>
 
