@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const envFile = path.join(__dirname, '../src/environments/environment.prod.ts');
+const envFile = path.join(__dirname, '../src/environments/environment.ts');
 
 if (fs.existsSync(envFile)) {
   let content = fs.readFileSync(envFile, 'utf8');
