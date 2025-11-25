@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';;
+import { ActivatedRoute } from '@angular/router';
 import { HorizontalGalleryComponent } from '../common/components/gallery/horizontal-gallery/horizontal-gallery.component';
-import { Project } from '../common/models/projects';
+import {HomeProject} from '../common/models/projects';
 
 
 @Component({
@@ -13,7 +13,7 @@ import { Project } from '../common/models/projects';
 })
 export class HomeComponent {
 
-  project: Project | undefined;
+  project: HomeProject | undefined;
 
 
   constructor(private route: ActivatedRoute) {

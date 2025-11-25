@@ -8,10 +8,22 @@
     "photographer": "",
     "model": "",
     "images": [
-      "https://res.cloudinary.com/dt8qryjfy/image/upload/v1755769497/noname-2_qrotie.jpg",
-      "https://res.cloudinary.com/dt8qryjfy/image/upload/v1758623882/kim-1_iycnng.jpg",
-      "https://res.cloudinary.com/dt8qryjfy/image/upload/v1758624686/schema-1_aikxzx.jpg",
-      "https://res.cloudinary.com/dt8qryjfy/image/upload/v1758624202/underwater-1_dlqgk6.jpg"
+      {
+        "image": "https://res.cloudinary.com/dt8qryjfy/image/upload/v1755769497/noname-2_qrotie.jpg",
+        "link": "/fashion/ink"
+      },
+      {
+        "image": "https://res.cloudinary.com/dt8qryjfy/image/upload/v1758623882/kim-1_iycnng.jpg",
+        "link": "/fashion/kim"
+      },
+      {
+        "image": "https://res.cloudinary.com/dt8qryjfy/image/upload/v1758624686/schema-1_aikxzx.jpg",
+        "link": "/film/schema"
+      },
+      {
+        "image": "https://res.cloudinary.com/dt8qryjfy/image/upload/v1758624202/underwater-1_dlqgk6.jpg",
+        "link": "/fashion/underwater"
+      }
     ]
   },
   {
