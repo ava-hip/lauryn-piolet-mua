@@ -1,11 +1,10 @@
 <div class="h-screen flex" id="gallery">
   @for (image of project?.images; track $index) {
-    <div class="flex flex-shrink-0 bg-cover bg-center rounded-lg h-screen w-[600px]" id="galleryContent">
-      <!-- <img [src]="image.image" class="flex-shrink-0 min-h-full min-w-full object-cover"> -->
+    <a [href]="image.link" class="flex flex-shrink-0 bg-cover bg-center rounded-lg h-screen w-[600px]" id="galleryContent">
       <app-image-loader
-      [src]="image"
+      [src]="image.image"
       class="flex-shrink-0 h-full min-w-full object-cover"
       />
-    </div>
+    </a>
   }
 </div>
